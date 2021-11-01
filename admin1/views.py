@@ -75,16 +75,6 @@ def dashboard(request):
     user_count=Account.objects.count()
     product_count=Product.objects.count()
     cat_count=Category.objects.count()
-    # product_date = Product.objects.order_by('-id')[1]
-    # p_date = product_date.modified_date.date()
-    # p_day = product_date.modified_date.strftime("%A")
-    # category_date = Category.objects.order_by('-id')[1]
-    # c_date =  category_date.modified_date.date()
-    # c_day =  category_date.modified_date.strftime("%A")
-    # user_date = Account.objects.get(email=request.user)
-    # u_date =  user_date.last_login.date
-    # u_day =user_date.last_login.strftime("%A")
-    # print(u_day)
     context={
         'monthNumber':monthNumber,
         'totalOrders':totalOrders,
