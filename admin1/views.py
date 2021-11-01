@@ -75,6 +75,7 @@ def dashboard(request):
     user_count=Account.objects.count()
     product_count=Product.objects.count()
     cat_count=Category.objects.count()
+    
     context={
         'monthNumber':monthNumber,
         'totalOrders':totalOrders,
