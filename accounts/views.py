@@ -73,16 +73,19 @@ def register(request):
                     messages.error(request,'Phone number already taken')
                     return render(request,'register.html')
                 else:
+                    try:
+                        account_sid = config('account_sid')
+                        auth_token = config('auth_token')
+                        client = Client(account_sid, auth_token)
 
-                    account_sid = config('account_sid')
-                    auth_token = config('auth_token')
-                    client = Client(account_sid, auth_token)
-
-                    verification = client.verify \
-                        .services('VA92be102e4eec0ddab0c97446a26a3c53') \
-                        .verifications \
-                        .create(to='+91'+phonenumber, channel='sms')
-                    return redirect('reg_otp')
+                        verification = client.verify \
+                            .services('VA92be102e4eec0ddab0c97446a26a3c53') \
+                            .verifications \
+                            .create(to='+91'+phonenumber, channel='sms')
+                        return redirect('reg_otp')
+                    except:
+                        messages.info(request,'Enter valid mobile')
+                        return redirect('register')
             else:
                 messages.error(request,'Password is not matching')
                 return render(request,'register.html')
