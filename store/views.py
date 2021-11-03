@@ -11,7 +11,7 @@ from category.models import Category
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 from orders.models import OrderProduct
 from store.forms import ReviewForm
-from store.models import Product, ReviewRating, Variation
+from store.models import Product, ReviewRating
 
 # Create your views here.
 def store(request,category_slug=None):
@@ -52,13 +52,12 @@ def product_detail(request,category_slug,product_slug):
 
     #Get the reviews
     reviews=ReviewRating.objects.filter(product_id=single_product.id,status=True)
-    variations=Variation.objects.filter(product_id=single_product.id)
+
     context={
         'orderproduct': orderproduct,
         'single_product':single_product,
         'in_cart':in_cart,
         'reviews':reviews,
-        'variations':variations
     }
     return render(request,'store/product_detail.html',context)
 
