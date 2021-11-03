@@ -51,6 +51,9 @@
 	                {% for error in form.errors.phonenumber %}
                     {{error}}
                     {% endfor %}
+					{% for message in messages %}
+					{{message}}
+					{% endfor %}
 	                </p>
 				</div> <!-- form-group end.// -->
                 </div>

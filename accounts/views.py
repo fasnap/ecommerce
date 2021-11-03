@@ -84,7 +84,7 @@ def register(request):
                             .create(to='+91'+phonenumber, channel='sms')
                         return redirect('reg_otp')
                     except:
-                        messages.info(request,'Enter valid mobile')
+                        messages.info(request,'Enter valid mobile number')
                         return redirect('register')
             else:
                 messages.error(request,'Password is not matching')
