@@ -33,20 +33,22 @@
 <div class="container">
 <div class="row">
 	{% for product in products %}
-		<div class="col-md-3">
+		<div class="col-md-3 col-6">
 			<div class="card card-product-grid"style="text-align: center; height: 300px">
 				<a href="{{product.get_url}}" class="img-wrap"> <img src="{{product.product_image1.url}}"> </a>
 				<figcaption class="info-wrap">
 				<a href="{{product.get_url}}" class="title" >{{product.product_name}}</a>
 				
-					<div class="price mt-1">₹{{product.price}} {% if product.offer %} <small>{{product.offer}}%</small>{% else %} {% endif %}</div> <!-- price-wrap.// -->
+					<div class="price mt-1">₹{{product.price}} {% if product.offer %} <small class="text-success">{{product.offer}}%</small>{% else %} {% endif %}</div> <!-- price-wrap.// -->
 						
 						<div class="action">
+						
 						<a href="{{ product.get_url }}" class="add-to-cart btn btn-white btn-default" style="background-color: rgb(165, 94, 94);">
 							View Details
 							<span class="ajaxcart-loader icon-spin2 animate-spin"></span>
 							<span class="ajaxcart-added icon-ok"></span>
 						</a>
+						
 						</div> 
 					<!--<div class="action">
 						<a href="{% url 'place_order'  %}" class="add-to-cart btn btn-primary btn-default">
