@@ -34,7 +34,8 @@ urlpatterns = [
     path('search_category/',views.search_category,name='search_category'),
     path('search_user',views.search_user,name='search_user'),
     path('search_variation/',views.search_variation,name='search_variation'),
-    path('search_sales',views.search_sales,name='search_sales')
+    path('search_sales',views.search_sales,name='search_sales'),
+    path('offer_manage',views.offer_manage,name='offer_manage')
 ]
 
 

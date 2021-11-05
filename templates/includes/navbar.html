@@ -27,11 +27,11 @@
     </ul>
 	<div class="col-2 order-2 order-lg-3">
 		<div style="    margin-bottom: 0 !important;" class="d-flex justify-content-end mb-3 mb-lg-0">
-			<a href="{% url 'user_dashboard' %}"><div class="icon icon-sms rounded-circles borders "><i style="font-size: 20px;" class="fa fa-user"></i></div></a>
-			<a href="{% url 'cart' %}" class="widget-header pl-3 ml-3">
+			<a href="{% url 'user_dashboard' %}"><div class="icon icon-sms rounded-circles borders " style="color:white;"><i style="font-size: 20px;" class="fa fa-user" ></i></div></a>
+			<a href="{% url 'cart' %}" class="widget-header1 pl-3 ml-3"  style="color:white;">
 				
-				<div class="icon icon-sms rounded-circles borders"><i style="font-size: 20px;" class="fa fa-shopping-cart"></i></div></a>
-				<span class="badge badge-pill badge-danger notify">{{cart_count}}</span>
+				<div class="icon icon-sms rounded-circles borders" ><i style="font-size: 20px;" class="fa fa-shopping-cart"></i></div></a>
+				<span class="badge badge-pill badge-light notify" style="background-color: rgb(187, 92, 92);">{{cart_count}}</span>
 			</a>
 			
 		</div> <!-- widgets-wrap.// -->
@@ -67,7 +67,7 @@
 	<div class=" flex-grow-0">
 		<div class="category-wrap dropdown d-inline-block float-right">
 			<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"> 
-				<i class="fa fa-bars"><a href="{% url 'home' %}" >All category </a></i>
+				<i class="fa fa-bars"><a href="{% url 'home' %}" style="color:rgb(116, 36, 49);" >All category </a></i>
 			</button>
 		
 			<div class="dropdown-menu">
@@ -85,7 +85,7 @@
 		</div>  <!-- category-wrap.// -->
 	</div> <!-- col.// -->
 	<div class="ml-2">
-	<a href="{% url 'store' %}" class="btn btn-outline-primary">Store</a>
+	<a href="{% url 'store' %}" class="btn btn-outline-secondary" style="color: white; " >Store</a>
 	</div>
 	<div class="">
 		

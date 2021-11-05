@@ -562,3 +562,6 @@ def export_pdf(request):
         response.write(output.read())
 
     return response
+
+def offer_manage(request):
+    pass

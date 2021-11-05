@@ -125,15 +125,40 @@
 
   </div>
 </div> <!-- card.// -->
-
-
- 
-
-	</aside> <!-- col.// -->
+</aside> <!-- col.// -->
+  
 	<aside class="col-lg-6">
+<div class="card">
+<div class="card-body">
+<div class="row">
+	<div class="col-md-12 col-sm-6 col-xs-12">
+            <div class="sccb-discount shopping-cart-content-box ">
+              <h4 class="d-flex justify-content-center"> Apply coupon</h4>
+                 
+                <p class="d-flex justify-content-center" >Coupon code: <small id="promo"></small></p>
+                <p class="d-flex justify-content-center">Discount: <span id="discount" class="text-success"></span></p>
+                
+               <p class="d-flex justify-content-center">Amount after applying coupon</p><br><strong class="d-flex justify-content-center order-total clearfix" id="grandtotal">{% if grand_total %} Grand Total: Rs{{grand_total}} {% else %} Rs{{request.session.grand_total}} {% endif %}</strong>
+               
 
-		<div class="card">
-		<div class="card-body">
+                <span class="sccb-shipping-title d-flex justify-content-center">Enter your coupon</span>
+                <div class="sccb-discount-subscribe-box clearfi">
+                    <input type="text" class="form-control " placeholder="Promo code" id="coupon"/>
+                    <div class="pt-2 d-flex justify-content-center">
+                        <button type="button" id="apply" value="{{grand_total}}" onclick="couponCheck()" class="btn btn-secondary" style="color: white; background-color: rgb(77, 30, 37);">
+                          Redeem
+                        </button>
+                        </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+  </div>
+<div class="pt-3">
+<div class="card">
+    
+<div class="card-body">
 			   
 <table class="table table-borderless table-shopping-cart">
 <thead class="text-muted">
@@ -186,34 +211,14 @@
 
 
 			
-      <button type="submit" name="submit"  class="btn btn-primary btn-block"> Place Order </button>
+      <button type="submit" name="submit"  class="btn  btn-block" style="color: rgb(255, 255, 255); background-color: rgb(70, 28, 35);"> Place Order </button>
 			<a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
    </form>
 
 	</div> <!-- card-body.// -->
 
 </div> <!-- card.// -->
-
-<div class="row">
-        <div class="col-md-12 col-sm-6 col-xs-12">
-            <div class="sccb-discount shopping-cart-content-box">
-              <h4> Apply coupon</h4>
-                <p>Coupon code: <small id="promo"></small></p>
-                <p>Discount: <span id="discount" class="text-success"></span></p>
-                
-                Amount after applying coupon<br><strong class="order-total clearfix" id="grandtotal">{% if grand_total %} Grand Total: Rs{{grand_total}} {% else %} Rs{{request.session.grand_total}} {% endif %}</strong>
-                                          
-                <span class="sccb-shipping-title">Enter your coupon</span>
-                <div class="sccb-discount-subscribe-box clearfix">
-                    <input type="text" class="form-control" placeholder="Promo code" id="coupon"/>
-                        <button type="button" id="apply" value="{{grand_total}}" onclick="couponCheck()" class="btn btn-secondary">
-                          Redeem
-                        </button>
-                </div>
-            </div>
-          </div>
-    </div>
-
+</div>
 
 </aside> <!-- col.// -->
 
@@ -382,8 +387,8 @@
                 },
 
                 email:{
-                   required: true,
-                   isEmail: true
+                   required:true,
+                   isEmail:true
                 },
                 address_line_1:{
                     required:true,
@@ -397,44 +402,25 @@
                       
                     required:true,
                     minlength:2,
-                    
-                    lettersonly: true,
-                    noSpace: true,
+                    lettersonly:true,
+                    noSpace:true,
                 },
                 state:{
                       
                     required:true,
                     minlength:2,
-                 
-                    lettersonly: true,
-                    noSpace: true,
+                    lettersonly:true,
+                    noSpace:true,
                 },
                 country:{
-                      
                     required:true,
                     minlength:2,
-                    
-                    lettersonly: true,
-                    noSpace: true,
+                    lettersonly:true,
+                    noSpace:true,
                 },
                
             },
-             messages: {
-                first_name: {
-                    alpha: "Please enter letters only"
-                },
-                last_name: {
-                    alpha: "Please enter letters only"
-                },
-                email: {
-                    isEmail: "Please enter a valid email address"
-                },
-                phonenumber: {
-                    number: "Please enter a valid mobile number",
-                    minlength: "Please enter atleast 10 digits",
-                    maxlength: "Please enter only 10 digits",
-                },
-            },
+             
             
         })
   

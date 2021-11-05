@@ -32,6 +32,7 @@
   <link href="{% static 'admin1/css/material-dashboard.css' %}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{% static 'admin1/demo/demo.css' %}" rel="stylesheet" />
+
 </head>
 
 
@@ -90,6 +91,12 @@
             <a class="nav-link" href="{% url 'coupon_manage' %}">
               <i class="material-icons">local_offer</i>
               <p>Coupon management</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'offer_manage' %}">
+              <i class="material-icons">local_offer</i>
+              <p>Offer management</p>
             </a>
           </li> 
           <li class="nav-item ">
@@ -162,8 +169,9 @@
                   <div class="ct-chart" id="dailySalesChart"></div>
                 </div> -->
                 <div class="card-body">
-                  <h4 class="card-title">Total Users</h4>
-                  <h1 class="card-category">{{ user_count }}</h1>
+                  <h4 class="card-title d-flex justify-content-center">Total Users</h4>
+                  <i class="material-icons d-flex justify-content-center fa-4x text-success">people</i>
+                  <h1 class="card-category d-flex justify-content-center">{{ user_count }}</h1>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -178,8 +186,9 @@
                   <div class="ct-chart" id="websiteViewsChart"></div>
                 </div>--> 
                 <div class="card-body">
-                  <h4 class="card-title">Total Products</h4>
-                  <h1 class="card-category">{{ product_count }}</h1>
+                  <h4 class="card-title d-flex justify-content-center">Total Products</h4>
+                  <i class="material-icons d-flex justify-content-center fa-4x text-primary">receipt</i>
+                  <h1 class="card-category d-flex justify-content-center">{{ product_count }}</h1>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -194,8 +203,9 @@
                   <div class="ct-chart" id="completedTasksChart"></div>
                 </div>-->
                 <div class="card-body">
-                  <h4 class="card-title">Total Categories</h4>
-                  <h1 class="card-category">{{ cat_count }}</h1>
+                  <h4 class="card-title d-flex justify-content-center">Total Categories</h4>
+                  <i class="material-icons d-flex justify-content-center fa-4x text-info">category</i>
+                  <h1 class="card-category d-flex justify-content-center">{{ cat_count }}</h1>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -225,7 +235,7 @@
             </div>
           <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
+                <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                     <i class="material-icons">category</i>
                   </div>
@@ -242,7 +252,7 @@
            
            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
+                <div class="card-header card-header-primary card-header-icon">
                   <div class="card-icon">
                     <i class="material-icons">receipt</i>
                   </div>
@@ -258,11 +268,11 @@
             </div>
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
               <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
+                <div class="card-header card-header-danger card-header-icon">
                   <div class="card-icon">
                     <i class="material-icons">local_offer</i>
                   </div>
- <a href="{% url 'coupon_manage' %}"><p class="card-category">Coupon Management</p></a> 
+              <a href="{% url 'coupon_manage' %}"><p class="card-category">Coupon Management</p></a> 
                   <h3 class="card-title"></h3>
                 </div>
                 <div class="card-footer">
