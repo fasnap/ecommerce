@@ -23,6 +23,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.js"></script>
+  
+  <style>
+    .not-visible {
+      display: none;
+  }
+  </style>
+    
 </head>
 
 <body class="dark-edition">
@@ -124,20 +131,17 @@
       <!-- End Navbar -->
       
 
-
-<div class="main-panel" style=" margin-left: 8rem;">
-  <div class="content-wrapper">
-   <div class="col-lg-12 grid-margin stretch-card">
-     <div class="card">
-      <div class="card-body">
-        <div class="row p-2 pt-3 pl-4">
-          <div class="col-md-5 p-2" id="col1">
+<main role="main" class="container" style="margin-top: 10%;">
+	  	<div class="card">
+      <div class="card-body" style="border-style: ridge; border-color: rgb(255, 255, 255);">
+      <div class="row">
+		    <div class="col-md-6" style="height: 50%; margin: auto;">
             <form  method="POST" enctype="multipart/form-data" id="submit-form">
              {% csrf_token %}
-
+         
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Category</label><a href="{% url 'addCategoryProduct' %}" class="btn btn-sm btn-success"><i class="fa fa-plus"></i></a>
+                  <label for="inputEmail4">Category</label><a href="{% url 'addCategoryProduct' %}" class="btn btn-sm btn-success"><i class="fa fa-plus" title="Add New Category"></i></a>
                   {{form.category}}
                 </div>
               </div>
@@ -145,13 +149,14 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputPassword4">Product Name</label>
-                  {{form.product_name}}
+                 {{form.product_name}}
+                 
                 </div>
 						  </div>
 
 						  <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputPassword4">slug</label>
+                  <label for="inputPassword4">slug</label><br>
                     {{form.slug}}
                 </div>
               </div>
@@ -228,21 +233,16 @@
               <button style="margin-top: 10px; color: white; border-color: white;"class="btn btn-primary " id="confirm-btn" type="submit">SUBMIT</button> 
                 <div class="form-group">
 									<div style="width: 400px;"  id="image-box" class="image-container m-auto"></div>
-										<button class="btn btn-outline-info m-auto" id="crop-btn"style=" margin-top: 10px; " type="button">Crop</button>
+										<button class="btn btn-outline-info m-auto not-visible" id="crop-btn"style=" margin-top: 10px; " type="button">Crop</button>
 									</div>
 								</div>
             </div>
           </form>
-          </div>
-        </div>
-      </div>
+    		</div>
+		</div>
     </div>
-   </div>
-</div>
-    
-</div>
-</div>
-</div>
+    </div>
+	</main>
 
 <script>
 

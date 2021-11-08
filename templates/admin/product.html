@@ -32,6 +32,8 @@
   <link href="{% static 'admin1/css/material-dashboard.css' %}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{% static 'admin1/demo/demo.css' %}" rel="stylesheet" />
+<link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css"/>
+
 </head>
 
 <body class="dark-edition">
@@ -190,7 +192,9 @@
                         <th>
                           Product name
                         </th>
-                     
+                        <th>
+                        Rating
+                        </th>
                         <th>
                          MRP
                         </th>
@@ -216,7 +220,19 @@
                           <td>
                             <p style="color:white;">{{product.product_name}}</p>
                           </td>
-                        
+                          <td>
+                          <!--star rating start-->
+                          <div class="d-flex justify-content-center">
+                            <div class="rating-star">
+                            <i class="fa fa-star{% if product.averageReview < 0.5 %}-o{% elif product.averageReview >= 0.5 and product.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if product.averageReview < 1.5 %}-o{% elif product.averageReview >= 1.5 and product.averageReview < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if product.averageReview < 2.5 %}-o{% elif product.averageReview >= 2.5 and product.averageReview < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if product.averageReview < 3.5 %}-o{% elif product.averageReview >= 3.5 and product.averageReview < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            <i class="fa fa-star{% if product.averageReview < 4.5 %}-o{% elif product.averageReview >= 4.5 and product.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                          <!--star rating end-->
+                          </td>
                           <td>
                             <p style="color:white;"> {{product.actual_price}}</p>
                           </td>

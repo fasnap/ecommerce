@@ -24,6 +24,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.js"></script>
+  <style>
+    .not-visible {
+      display: none;
+  }
+  </style>
+
 </head>
 
 <body class="dark-edition">
@@ -163,7 +169,7 @@
             <button style="margin-top: 10px; color: white; border-color: white;"class="btn btn-primary " id="confirm-btn" type="submit">SUBMIT</button> 
               <div class="form-group">
                 <div style="width: 400px;"  id="image-box" class="image-container m-auto"></div>
-                  <button class="btn btn-outline-info m-auto" id="crop-btn"style=" margin-top: 10px; " type="button">Crop</button>
+                  <button class="btn btn-outline-info m-auto not-visible" id="crop-btn"style=" margin-top: 10px; " type="button">Crop</button>
                 </div>
               </div>
           </div>

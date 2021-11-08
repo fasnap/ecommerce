@@ -4,7 +4,11 @@
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.js"></script>
-
+  <style>
+    .not-visible {
+      display: none;
+  }
+  </style>
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-conten padding-y bg">
 {% include 'includes/alerts.html' %}
@@ -82,13 +86,12 @@
                                             type="submit">SUBMIT</button> 
 							</div>
 							<div class="form-row">
-											<div class="form-group">
-												<div style="width: 400px; height: 500px;"  id="image-box" class="image-container m-auto"></div>
-												<button class="btn btn-outline-info m-auto" id="crop-btn"
-												  style=" margin-top: 10px; " type="button">Crop</button>
+							<div class="form-group">
+							<div style="width: 400px; height: 500px;"  id="image-box" class="image-container m-auto not-visible"></div>
+							<button class="btn btn-outline-info m-auto not-visible" id="crop-btn"style="margin-top: 10px" type="button">Crop</button>
 												 
-											  </div>
-											</div>
+							</div>
+							</div>
 
 
                 </form>
@@ -104,6 +107,8 @@
 
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
+
+
 <script>
 
 

@@ -15,7 +15,7 @@ from coupons.models import Coupon
 from orders.models import Order, OrderProduct
 from .forms import  CategoryForm,ProductForm,VariationForm
 from category.models import Category
-from store.models import Product, Variation
+from store.models import Product, ReviewRating, Variation
 from django.shortcuts import render  
 import calendar
 from django.db.models import Q
@@ -71,7 +71,6 @@ def dashboard(request):
     for product in queryset:
         labels.append(product.product_name)
         data.append(product.price)
-
     user_count=Account.objects.count()
     product_count=Product.objects.count()
     cat_count=Category.objects.count()
@@ -84,7 +83,11 @@ def dashboard(request):
     user_date = Account.objects.get(email=request.user)
     u_date =  user_date.last_login.date
     u_day =user_date.last_login.strftime("%A")
+    products=Product.objects.all().filter(is_available=True).order_by('-price')[:3]
+    categories=Category.objects.all()
     context={
+        'categories':categories,
+        'products':products,
         'monthNumber':monthNumber,
         'totalOrders':totalOrders,
         'orders':orders,
@@ -472,9 +475,13 @@ def sales_report(request,total=0, quantity=0, cart_items=None):
           order_search=OrderProduct.objects.filter(created_at__range=[date_from,date_to])
           return render(request,'admin/sales_report.html',{'orders':order_search})
     else:
+        users = Account.objects.all()
         orders = OrderProduct.objects.all()
-        return render(request, "admin/sales_report.html",{'orders':orders})
+        return render(request, "admin/sales_report.html",{'orders':orders,'users':users})
 
+
+        
+        
 #search sales
 @login_required(login_url='login')
 @user_passes_test(lambda user: user.is_superadmin,login_url='login')
