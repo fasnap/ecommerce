@@ -168,7 +168,7 @@
                         <th>
                           offer percentage
                         </th>
-                       
+               
                       </thead>
                       <tbody>
                         {% for coupon in coupons %}
@@ -181,6 +181,7 @@
                            <td>
                             {{coupon.discount}}
                           </td>
+                           
                           <td class="text-primary">
                            
                             <a href="{% url 'edit_coupon' coupon.id%}" style="float: right;"><i class="material-icons" style="color: skyblue;">edit</i></a> 

@@ -1,5 +1,4 @@
 from django.db import models
-
 from accounts.models import Account
 
 class Coupon(models.Model):
@@ -7,7 +6,7 @@ class Coupon(models.Model):
     discount = models.CharField(max_length=3)
     status = models.BooleanField(default=True)
     date = models.DateField(auto_now_add=True)
-
+   
     def _str_(self):
         return self.code
 
