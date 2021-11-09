@@ -4,7 +4,7 @@ from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
 from django.db.models.fields.related import ForeignKey
 from accounts.models import Account
-from coupons.models import Coupon
+from coupons.models import Coupons as Coupon
 from store.models import Product,Variation
 
 # Create your models here.

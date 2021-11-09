@@ -16,6 +16,7 @@
 			<a class="list-group-item {% if '/my_orders/' in request.path %}active{% endif %}" href="{% url 'my_orders' %}" style="color: rgb(0, 0, 0);"> My Orders </a>
 			<a class="list-group-item {% if '/edit_profile/' in request.path %}active{% endif %}" href="{% url 'edit_profile' %}" style="color: rgb(0, 0, 0);"> Edit Profile </a>
 			<a class="list-group-item {% if '/address_book/' in request.path %}active{% endif %}" href="{% url 'address_book' %}" style="color: rgb(0, 0, 0);"> Address book </a>
+			<a class="list-group-item {% if '/my_wishlist/' in request.path %}active{% endif %}" href="{% url 'my_wishlist' %}" style="color: rgb(0, 0, 0);">My Wishlist </a>
 			<a class="list-group-item {% if '/change_password/' in request.path %}active{% endif %}" href="{% url 'change_password' %}" style="color: rgb(0, 0, 0);">Change Password </a>
 		</ul>
 		<br>

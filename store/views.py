@@ -2,16 +2,17 @@
 
 from django.contrib import messages
 from django.db.models import Q
-from django.http.response import HttpResponse
+from django.forms.widgets import DateTimeBaseInput
+from django.http.response import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from admin1.views import status
+from admin1.views import product, status
 from carts.models import CartItem
 from carts.views import _cart_id
 from category.models import Category
 from django.core.paginator import Paginator,PageNotAnInteger,EmptyPage
 from orders.models import OrderProduct
 from store.forms import ReviewForm
-from store.models import Product, ReviewRating, Variation
+from store.models import Product, ReviewRating, Variation, Wishlist
 
 # Create your views here.
 def store(request,category_slug=None):
@@ -100,3 +101,27 @@ def submit_review(request,product_id):
                 data.save()
                 messages.success(request,'Thank You ! Your review has been submitted')
                 return redirect(url)
+def add_wishlist(request):
+    pid=request.GET['product']
+    product=Product.objects.get(pk=pid)
+    data={}
+    checkw=Wishlist.objects.filter(product=product,user=request.user).count()
+    if checkw > 0:
+        data={
+            'bool':False
+        }
+    else:
+        wishlist=Wishlist.objects.create(
+            product=product,
+            user=request.user,
+        )
+        data={
+            'bool':True
+        }
+    return JsonResponse(data)
+def my_wishlist(request):
+    wlist=Wishlist.objects.filter(user=request.user).order_by('-id')
+    context={
+        'wlist':wlist,
+    }
+    return render(request,'wishlist.html',context)

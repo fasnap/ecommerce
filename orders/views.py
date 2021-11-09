@@ -5,7 +5,8 @@ from django.views.decorators.cache import never_cache
 from accounts.forms import AddressBookForm
 from accounts.models import UserAddressBook
 from carts.models import BuynowItem, CartItem
-from coupons.models import Coupon, CouponCheck
+from coupons.models import Coupons as Coupon
+from coupons.models import CouponCheck
 from store.models import Product
 from .models import Order, OrderProduct, Payment
 from .forms import OrderForm

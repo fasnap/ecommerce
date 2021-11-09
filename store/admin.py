@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.db import models
-from .models import Product,Variation,ReviewRating
+from .models import Product,Variation,ReviewRating, Wishlist
 # Register your models here.
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields={'slug':('product_name',)}
@@ -12,3 +12,4 @@ class VariationAdmin(admin.ModelAdmin):
 admin.site.register(Product,ProductAdmin)
 admin.site.register(Variation,VariationAdmin)
 admin.site.register(ReviewRating)
+admin.site.register(Wishlist)

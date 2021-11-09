@@ -11,7 +11,7 @@ from django.utils import encoding
 from accounts.models import Account
 from django.db.models.functions import ExtractMonth, datetime
 from category.models import Category
-from coupons.models import Coupon
+from coupons.models import Coupons as Coupon
 from orders.models import Order, OrderProduct
 from .forms import  CategoryForm,ProductForm,VariationForm
 from category.models import Category
@@ -396,6 +396,11 @@ def editvariation(request,id):
     else:
         form=VariationForm(instance=variation)
         return render(request,'admin/editvariation.html',{'variation':variation,'form':form})
+
+#delete product variation
+def delete_variation(request,id):
+    Variation.objects.filter(id=id).delete()
+    return redirect('variation')
 
 #add variation
 @login_required(login_url='login')

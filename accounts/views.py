@@ -16,7 +16,8 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from accounts.admin import UserAddressBookAdmin
 from admin1.views import product
-from coupons.models import Coupon, CouponCheck
+from coupons.models import CouponCheck
+from coupons.models import Coupons as Coupon
 from orders.models import Order, OrderProduct
 from .forms import AddressBookForm, RegistrationForm,UserForm,UserProfileForm
 from django.contrib.auth.decorators import login_required

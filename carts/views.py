@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from accounts.models import UserAddressBook
 from admin1.views import status
-from coupons.models import Coupon
+from coupons.models import Coupons as Coupon
 from .models import BuynowItem, CartItem,Cart
 from store.models import Product, Variation
 from django.views.decorators.cache import never_cache

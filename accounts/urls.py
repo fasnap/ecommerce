@@ -17,6 +17,7 @@ urlpatterns = [
     path('resetPass',views.resetPass,name='resetPass'),
     
     
+    
   
   
     # path('forgot_otp',views.forgot_otp,name='forgot_otp'),
